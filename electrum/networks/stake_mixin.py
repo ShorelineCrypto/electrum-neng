@@ -1,6 +1,6 @@
 class StakeMixin(object):
     POS_START_HEIGHT = 0
-    MIN_POS_WORK_LIMIT = 0x00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    MIN_POS_WORK_LIMIT = 0x000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 
     @classmethod
     def is_pos_active(cls, header) -> bool:

@@ -20,11 +20,11 @@ from electrum.network import Network
 
 
 class UpdateCheck(QDialog, Logger):
-    url = "https://electrum.org/version"
-    download_url = "https://electrum.org/#download"
+    url = "https://github.com/scalaris-project/electrum/releases/download/v4.0.0.0/version"
+    download_url = "https://github.com/scalaris-project/electrum/releases"
 
     VERSION_ANNOUNCEMENT_SIGNING_KEYS = (
-        "13xjmVAB1EATPP8RshTE8S8sNwwSUM9p1P",
+        "SVjpLiM3kyUm4SiSZP1KYNQVyGpPKv8GTy",
     )
 
     def __init__(self, *, latest_version=None):

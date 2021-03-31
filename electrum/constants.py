@@ -42,14 +42,16 @@ networks = {
     'Donu-Mainnet': DonuMainnet,
     'Namecoin': NamecoinMainnet,
     'Namecoin-Mainnet': NamecoinMainnet,
+    'Scalaris': ScalarisMainnet,
+    'Scalaris-Mainnet': ScalarisMainnet,
 }
 
 net = networks['Bitcoin']
 
-def select_network(network='{{buildmatrix_coin_name_normal}}'):
+def select_network(network='Scalaris'):
     if not network in networks:
         raise Exception('Invalid Network. Available: {}'.format(
             list(networks.keys())))
     global net
-    net = networks.get(network, '{{buildmatrix_coin_name_normal}}')
+    net = networks.get(network, 'Scalaris')
     return
