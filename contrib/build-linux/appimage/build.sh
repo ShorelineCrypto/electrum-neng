@@ -115,7 +115,7 @@ info "preparing electrum-locale."
 info "Installing Algo Module"
 (
   cd "$CACHEDIR"
-  git clone https://github.com/scalaris-project/algolib "$CONTRIB/algolib"
+  git clone https://github.com/ShorelineCrypto/algolib "$CONTRIB/algolib"
   pushd "$CONTRIB"/algolib
   "$python" setup.py install
   popd
