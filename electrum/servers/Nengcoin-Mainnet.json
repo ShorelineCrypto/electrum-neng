@@ -1,17 +1,17 @@
 {
-    "electrum1.nengcoin.info": {
+    "electrum.shorelinecrypto.com": {
         "pruning": "-",
         "s": "10002",
         "t": "10001",
         "version": "1.4"
     },
-    "electrum2.nengcoin.info": {
+    "electrum1.mooo.com": {
         "pruning": "-",
         "s": "10002",
         "t": "10001",
         "version": "1.4"
     },
-    "electrum3.nengcoin.info": {
+    "electrum2.mooo.com": {
         "pruning": "-",
         "s": "10002",
         "t": "10001",

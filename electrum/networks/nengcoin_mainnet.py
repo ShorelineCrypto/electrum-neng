@@ -12,9 +12,9 @@ class NengcoinMainnet(AbstractNet, StakeMixin):
     NAME_LOWER = 'nengcoin'
     SHORT_CODE = 'NENG'
     DATA_DIR = 'nengcoin'
-    OPEN_ALIAS_PREFIX = 'sca'
+    OPEN_ALIAS_PREFIX = 'neng'
     PAYMENT_URI_SCHEME = 'nengcoin'
-    PAYMENT_REQUEST_PKI_TYPE = "dnssec+sca"
+    PAYMENT_REQUEST_PKI_TYPE = "dnssec+neng"
     APPLICATION_PAYMENT_REQUEST_TYPE = 'application/nengcoin-paymentrequest'
     APPLICATION_PAYMENT_TYPE = 'application/nengcoin-payment'
     APPLICATION_PAYMENT_ACK_TYPE = 'application/nengcoin-paymentack'
