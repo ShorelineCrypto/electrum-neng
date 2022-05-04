@@ -1,0 +1,20 @@
+{
+    "electrum1.nengcoin.info": {
+        "pruning": "-",
+        "s": "10002",
+        "t": "10001",
+        "version": "1.4"
+    },
+    "electrum2.nengcoin.info": {
+        "pruning": "-",
+        "s": "10002",
+        "t": "10001",
+        "version": "1.4"
+    },
+    "electrum3.nengcoin.info": {
+        "pruning": "-",
+        "s": "10002",
+        "t": "10001",
+        "version": "1.4"
+    }
+} 
