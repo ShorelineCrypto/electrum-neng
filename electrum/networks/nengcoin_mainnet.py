@@ -10,7 +10,7 @@ class NengcoinMainnet(AbstractNet, StakeMixin):
 
     NAME = 'Nengcoin'
     NAME_LOWER = 'nengcoin'
-    SHORT_CODE = 'SCA'
+    SHORT_CODE = 'NENG'
     DATA_DIR = 'nengcoin'
     OPEN_ALIAS_PREFIX = 'sca'
     PAYMENT_URI_SCHEME = 'nengcoin'
@@ -18,9 +18,9 @@ class NengcoinMainnet(AbstractNet, StakeMixin):
     APPLICATION_PAYMENT_REQUEST_TYPE = 'application/nengcoin-paymentrequest'
     APPLICATION_PAYMENT_TYPE = 'application/nengcoin-payment'
     APPLICATION_PAYMENT_ACK_TYPE = 'application/nengcoin-paymentack'
-    BASE_UNITS = {'SCA': 8, 'mSCA': 5, 'uSCA': 2, 'swartz': 0}
+    BASE_UNITS = {'NENG': 8, 'mNENG': 5, 'uNENG': 2, 'swartz': 0}
     BASE_UNITS_INVERSE = inv_dict(BASE_UNITS)
-    BASE_UNITS_LIST = ['SCA', 'mSCA', 'uSCA', 'swartz']
+    BASE_UNITS_LIST = ['NENG', 'mNENG', 'uNENG', 'swartz']
     TESTNET = False
 
     WIF_PREFIX = 0x9a
@@ -50,7 +50,7 @@ class NengcoinMainnet(AbstractNet, StakeMixin):
     TOTAL_COIN_SUPPLY_LIMIT = 999999999999
     SIGNED_MESSAGE_PREFIX = b"\x18Nengcoin Signed Message:\n"
 
-    DECIMAL_POINT_DEFAULT = 8 # SCA
+    DECIMAL_POINT_DEFAULT = 8 # NENG
     TARGET_SPACING = int(2 * 60)
     DGW_FORK_BLOCK = 0
 
