@@ -182,7 +182,7 @@ class BitcoinVenezuela(ExchangeBase):
 class Bitbank(ExchangeBase):
 
     async def get_rates(self, ccy):
-        json = await self.get_json('public.bitbank.cc', '/sca_jpy/ticker')
+        json = await self.get_json('public.bitbank.cc', '/neng_jpy/ticker')
         return {'JPY': Decimal(json['data']['last'])}
 
 
@@ -214,7 +214,7 @@ class BitStamp(ExchangeBase):
 
     async def get_rates(self, ccy):
         if ccy in CURRENCIES[self.name()]:
-            json = await self.get_json('www.bitstamp.net', f'/api/v2/ticker/sca{ccy.lower()}/')
+            json = await self.get_json('www.bitstamp.net', f'/api/v2/ticker/neng{ccy.lower()}/')
             return {ccy: Decimal(json['last'])}
         return {}
 
@@ -384,7 +384,7 @@ class Winkdex(ExchangeBase):
 
 class Zaif(ExchangeBase):
     async def get_rates(self, ccy):
-        json = await self.get_json('api.zaif.jp', '/api/1/last_price/sca_jpy')
+        json = await self.get_json('api.zaif.jp', '/api/1/last_price/neng_jpy')
         return {'JPY': Decimal(json['last_price'])}
 
 
@@ -578,15 +578,15 @@ class FxThread(ThreadJob):
             return Decimal('NaN')
         return Decimal(rate)
 
-    def format_amount(self, sca_balance):
+    def format_amount(self, neng_balance):
         rate = self.exchange_rate()
-        return '' if rate.is_nan() else "%s" % self.value_str(sca_balance, rate)
+        return '' if rate.is_nan() else "%s" % self.value_str(neng_balance, rate)
 
-    def format_amount_and_units(self, sca_balance):
+    def format_amount_and_units(self, neng_balance):
         rate = self.exchange_rate()
-        return '' if rate.is_nan() else "%s %s" % (self.value_str(sca_balance, rate), self.ccy)
+        return '' if rate.is_nan() else "%s %s" % (self.value_str(neng_balance, rate), self.ccy)
 
-    def get_fiat_status_text(self, sca_balance, base_unit, decimal_point):
+    def get_fiat_status_text(self, neng_balance, base_unit, decimal_point):
         rate = self.exchange_rate()
         return _("  (No FX rate available)") if rate.is_nan() else " 1 %s~%s %s" % (base_unit,
             self.value_str(constants.net.COIN / (10**(8 - decimal_point)), rate), self.ccy)
