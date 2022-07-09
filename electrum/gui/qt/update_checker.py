@@ -20,8 +20,8 @@ from electrum.network import Network
 
 
 class UpdateCheck(QDialog, Logger):
-    url = "https://github.com/scalaris-project/electrum/releases/download/v4.0.0.0/version"
-    download_url = "https://github.com/scalaris-project/electrum/releases"
+    url = "https://github.com/ShorelineCrypto/electrum-neng/releases/download/v4.0.0.0/version"
+    download_url = "https://github.com/ShorelineCrypto/electrum-neng/releases"
 
     VERSION_ANNOUNCEMENT_SIGNING_KEYS = (
         "SVjpLiM3kyUm4SiSZP1KYNQVyGpPKv8GTy",

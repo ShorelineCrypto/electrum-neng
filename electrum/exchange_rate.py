@@ -151,7 +151,7 @@ class BitcoinAverage(ExchangeBase):
 
     async def get_rates(self, ccy):
         json = await self.get_json('apiv2.bitcoinaverage.com', '/indices/global/ticker/short')
-        return dict([(r.replace("SCA", ""), Decimal(json[r]['last']))
+        return dict([(r.replace("NENG", ""), Decimal(json[r]['last']))
                      for r in json if r != 'timestamp'])
 
 
@@ -166,8 +166,8 @@ class BitcoinVenezuela(ExchangeBase):
 
     async def get_rates(self, ccy):
         json = await self.get_json('api.bitcoinvenezuela.com', '/')
-        rates = [(r, json['SCA'][r]) for r in json['SCA']
-                 if json['SCA'][r] is not None]  # Giving NULL for LTC
+        rates = [(r, json['NENG'][r]) for r in json['NENG']
+                 if json['NENG'][r] is not None]  # Giving NULL for LTC
         return dict(rates)
 
     def history_ccys(self):
@@ -175,14 +175,14 @@ class BitcoinVenezuela(ExchangeBase):
 
     async def request_history(self, ccy):
         json = await self.get_json('api.bitcoinvenezuela.com',
-                             "/historical/index.php?coin=SCA")
-        return json[ccy +'_SCA']
+                             "/historical/index.php?coin=NENG")
+        return json[ccy +'_NENG']
 
 
 class Bitbank(ExchangeBase):
 
     async def get_rates(self, ccy):
-        json = await self.get_json('public.bitbank.cc', '/sca_jpy/ticker')
+        json = await self.get_json('public.bitbank.cc', '/neng_jpy/ticker')
         return {'JPY': Decimal(json['data']['last'])}
 
 
@@ -214,7 +214,7 @@ class BitStamp(ExchangeBase):
 
     async def get_rates(self, ccy):
         if ccy in CURRENCIES[self.name()]:
-            json = await self.get_json('www.bitstamp.net', f'/api/v2/ticker/sca{ccy.lower()}/')
+            json = await self.get_json('www.bitstamp.net', f'/api/v2/ticker/neng{ccy.lower()}/')
             return {ccy: Decimal(json['last'])}
         return {}
 
@@ -236,7 +236,7 @@ class BlockchainInfo(ExchangeBase):
 class Bylls(ExchangeBase):
 
     async def get_rates(self, ccy):
-        json = await self.get_json('bylls.com', '/api/price?from_currency=SCA&to_currency=CAD')
+        json = await self.get_json('bylls.com', '/api/price?from_currency=NENG&to_currency=CAD')
         return {'CAD': Decimal(json['public_price']['to_price'])}
 
 
@@ -244,7 +244,7 @@ class Coinbase(ExchangeBase):
 
     async def get_rates(self, ccy):
         json = await self.get_json('api.coinbase.com',
-                             '/v2/exchange-rates?currency=SCA')
+                             '/v2/exchange-rates?currency=NENG')
         return {ccy: Decimal(rate) for (ccy, rate) in json["data"]["rates"].items()}
 
 
@@ -261,7 +261,7 @@ class CoinCap(ExchangeBase):
         # Currently 2000 days is the maximum in 1 API call
         # (and history starts on 2017-03-23)
         history = await self.get_json('api.coincap.io',
-                                      '/v2/assets/scalaris/history?interval=d1&limit=2000')
+                                      '/v2/assets/nengcoin/history?interval=d1&limit=2000')
         return dict([(datetime.utcfromtimestamp(h['time']/1000).strftime('%Y-%m-%d'), h['priceUsd'])
                      for h in history['data']])
 
@@ -308,7 +308,7 @@ class CoinGecko(ExchangeBase):
 
     async def request_history(self, ccy):
         history = await self.get_json('api.coingecko.com',
-                                      '/api/v3/coins/scalaris/market_chart?vs_currency=%s&days=max' % ccy)
+                                      '/api/v3/coins/nengcoin/market_chart?vs_currency=%s&days=max' % ccy)
 
         return dict([(datetime.utcfromtimestamp(h[0]/1000).strftime('%Y-%m-%d'), h[1])
                      for h in history['prices']])
@@ -361,7 +361,7 @@ class TheRockTrading(ExchangeBase):
 
     async def get_rates(self, ccy):
         json = await self.get_json('api.therocktrading.com',
-                             '/v1/funds/SCAEUR/ticker')
+                             '/v1/funds/NENGEUR/ticker')
         return {'EUR': Decimal(json['last'])}
 
 
@@ -384,7 +384,7 @@ class Winkdex(ExchangeBase):
 
 class Zaif(ExchangeBase):
     async def get_rates(self, ccy):
-        json = await self.get_json('api.zaif.jp', '/api/1/last_price/sca_jpy')
+        json = await self.get_json('api.zaif.jp', '/api/1/last_price/neng_jpy')
         return {'JPY': Decimal(json['last_price'])}
 
 
@@ -578,15 +578,15 @@ class FxThread(ThreadJob):
             return Decimal('NaN')
         return Decimal(rate)
 
-    def format_amount(self, sca_balance):
+    def format_amount(self, neng_balance):
         rate = self.exchange_rate()
-        return '' if rate.is_nan() else "%s" % self.value_str(sca_balance, rate)
+        return '' if rate.is_nan() else "%s" % self.value_str(neng_balance, rate)
 
-    def format_amount_and_units(self, sca_balance):
+    def format_amount_and_units(self, neng_balance):
         rate = self.exchange_rate()
-        return '' if rate.is_nan() else "%s %s" % (self.value_str(sca_balance, rate), self.ccy)
+        return '' if rate.is_nan() else "%s %s" % (self.value_str(neng_balance, rate), self.ccy)
 
-    def get_fiat_status_text(self, sca_balance, base_unit, decimal_point):
+    def get_fiat_status_text(self, neng_balance, base_unit, decimal_point):
         rate = self.exchange_rate()
         return _("  (No FX rate available)") if rate.is_nan() else " 1 %s~%s %s" % (base_unit,
             self.value_str(constants.net.COIN / (10**(8 - decimal_point)), rate), self.ccy)

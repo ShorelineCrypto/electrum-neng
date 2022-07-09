@@ -9,7 +9,7 @@ on:
   
 jobs:
   osx-build:
-    name: Build Scalaris OSX Release Asset
+    name: Build Nengcoin OSX Release Asset
     runs-on: macos-latest
     steps:
       - name: Checkout code
@@ -22,7 +22,7 @@ jobs:
         run: ./contrib/osx/make_osx
       
       - name: Package Files for upload
-        run: zip -r scalaris-osx.zip dist
+        run: zip -r nengcoin-osx.zip dist
       
 
       - name: Release
@@ -30,10 +30,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          files: scalaris-osx.zip
+          files: nengcoin-osx.zip
           
   linux-build:
-    name: Build Scalaris Linux Release Asset
+    name: Build Nengcoin Linux Release Asset
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -49,17 +49,17 @@ jobs:
         run: sudo docker run --name electrum-appimage-builder-cont -v $PWD:/opt/electrum --rm --workdir /opt/electrum/contrib/build-linux/appimage electrum-appimage-builder-img ./build.sh
 
       - name: Zip Files
-        run: zip -r scalaris-linux.zip dist
+        run: zip -r nengcoin-linux.zip dist
 
       - name: Release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          files: scalaris-linux.zip
+          files: nengcoin-linux.zip
 
   windows-build:
-    name: Build Scalaris Windows Release Asset
+    name: Build Nengcoin Windows Release Asset
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -75,11 +75,11 @@ jobs:
         run: sudo docker run --name electrum-wine-builder-cont -v $PWD:/opt/wine64/drive_c/electrum --rm --workdir /opt/wine64/drive_c/electrum/contrib/build-wine electrum-wine-builder-img ./build.sh
 
       - name: Zip Files
-        run: zip -r scalaris-windows.zip ./contrib/build-wine/dist
+        run: zip -r nengcoin-windows.zip ./contrib/build-wine/dist
 
       - name: Release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          files: scalaris-windows.zip
+          files: nengcoin-windows.zip

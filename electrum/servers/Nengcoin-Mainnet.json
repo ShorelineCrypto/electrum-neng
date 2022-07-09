@@ -1,17 +1,17 @@
 {
-    "electrum1.scalaris.info": {
+    "electrum.shorelinecrypto.com": {
         "pruning": "-",
         "s": "10002",
         "t": "10001",
         "version": "1.4"
     },
-    "electrum2.scalaris.info": {
+    "electrum1.mooo.com": {
         "pruning": "-",
         "s": "10002",
         "t": "10001",
         "version": "1.4"
     },
-    "electrum3.scalaris.info": {
+    "electrum2.mooo.com": {
         "pruning": "-",
         "s": "10002",
         "t": "10001",
