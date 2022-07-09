@@ -57,7 +57,7 @@ class NengcoinMainnet(AbstractNet, StakeMixin):
     INTERVAL = int(TARGET_TIMESPAN / TARGET_SPACING)
 
     BLOCK_EXPLORERS = {
-        'nengexplorer.mooo.com': ('http://nengexplorer.mooo.com:3001/', {'tx': '/tx/', 'addr': '/address/'}),
+        'nengexplorer.mooo.com': ('http://nengexplorer.mooo.com:3001', {'tx': '/tx/', 'addr': '/address/'}),
     }
 
 
