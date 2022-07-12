@@ -112,14 +112,14 @@ info "preparing electrum-locale."
     popd
 )
 
-info "Installing Algo Module"
-(
-  cd "$CACHEDIR"
-  git clone https://github.com/ShorelineCrypto/algolib "$CONTRIB/algolib"
-  pushd "$CONTRIB"/algolib
-  "$python" setup.py install
-  popd
-)
+#info "Skipping Algo Module"
+#(
+#  cd "$CACHEDIR"
+#  git clone https://github.com/ShorelineCrypto/algolib "$CONTRIB/algolib"
+#  pushd "$CONTRIB"/algolib
+#  "$python" setup.py install
+#  popd
+#)
 
 info "installing electrum and its dependencies."
 mkdir -p "$CACHEDIR/pip_cache"
