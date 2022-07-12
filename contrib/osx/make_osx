@@ -108,11 +108,10 @@ info "generating locale"
 ) || fail "failed generating locale"
 
 
-info "Downloading libusb..."
-curl https://homebrew.bintray.com/bottles/libusb-1.0.23.high_sierra.bottle.tar.gz | \
-tar xz --directory $BUILDDIR
-cp $BUILDDIR/libusb/1.0.23/lib/libusb-1.0.dylib contrib/osx
-echo "caea266f3fc3982adc55d6cb8d9bad10f6e61f0c24ce5901aa1804618e08e14d  contrib/osx/libusb-1.0.dylib" | \
+info "Installing libusb..."
+brew install libusb
+cp /usr/local/Cellar/libusb/1.0.26/lib/libusb-1.0.dylib contrib/osx
+echo "63203f39566ccaf2613852175cf329cf4ffb704361816da65bc25019c1634872  contrib/osx/libusb-1.0.dylib" | \
     shasum -a 256 -c || fail "libusb checksum mismatched"
 
 info "Preparing for building libsecp256k1"
@@ -134,9 +133,10 @@ info "Installing requirements..."
 python3 -m pip install --no-dependencies -Ir ./contrib/deterministic-build/requirements.txt --user \
     || fail "Could not install requirements"
 
-info "Installing Algo Module"
-download_if_not_exist "$BUILDDIR/$ALGOMODULE_FILENAME" "$ALGOMODULE_URL"
-python3 -m pip install "$BUILDDIR/$ALGOMODULE_FILENAME" --user || fail "Could not install Algo Module"
+info "Skipping Algo Module"
+#download_if_not_exist "$BUILDDIR/$ALGOMODULE_FILENAME" "$ALGOMODULE_URL"
+#python3 -m pip install "$BUILDDIR/$ALGOMODULE_FILENAME" --user || fail "Could not install Algo Module"
+
 
 info "Installing hardware wallet requirements..."
 python3 -m pip install --no-dependencies -Ir ./contrib/deterministic-build/requirements-hw.txt --user \

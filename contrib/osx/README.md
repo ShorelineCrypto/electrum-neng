@@ -45,6 +45,14 @@ Make sure it is the "selected" xcode (e.g.):
 
     sudo xcode-select -s $HOME/Downloads/Xcode.app/Contents/Developer/
 
+Also make sure the command tools is also installed on same version,  checkout electrum-LTC guide on this OSX xcode readme for 
+more details. 
+
+Install brew after xcode/Xcode command tools 11.3.1 on Majave, optional to install below
+ brew install wget
+ brew install PyQt5
+
+
 #### 1.b Build QR scanner separately on another Mac
 
 Alternatively, you can try building just the QR scanner on another Mac.
