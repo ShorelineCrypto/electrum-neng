@@ -102,8 +102,8 @@ Development version (git clone)
 
 Check out the code from GitHub::
 
-    git clone git://github.com/spesmilo/electrum.git
-    cd electrum
+    git clone https://github.com/ShorelineCrypto/electrum-neng.git
+    cd electrum-neng
     git submodule update --init
 
 Run install (this should install dependencies)::
