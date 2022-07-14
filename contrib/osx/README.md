@@ -36,8 +36,8 @@ Before starting, you should install `brew`.
 - We recommend creating a VM with a macOS guest, e.g. using VirtualBox,
   and building there.
 - The guest should run macOS 10.14.6 (that specific version).
-- The unix username should be `vagrant`, and `electrum-ltc` should be cloned directly
-  to the user's home dir: `/Users/vagrant/electrum-ltc`.
+- The unix username should be `vagrant`, and `electrum-neng` should be cloned directly
+  to the user's home dir: `/Users/vagrant/electrum-neng`.
 - Builders need to use the same version of Xcode; and note that
   full Xcode and Xcode commandline tools differ!
   - Xcode CLI tools are sufficient for everything, except it is missing `altool`,
@@ -102,10 +102,10 @@ Install brew after xcode/Xcode command tools 11.3.1 on Majave, we installed inst
  brew install PyQt5
 ```
 
-brew install PyQt5 took long time and may not be needed. Check out electrum-LTC guide
-( https://github.com/pooler/electrum-ltc/blob/master/contrib/osx/README_macos.md ) on how to meet pyQT5 or libsecp256k1 installations.
+brew install PyQt5 took long time and may not be needed. Check out electrum mac guide
+( https://github.com/spesmilo/electrum/blob/master/contrib/osx/README_macos.md ) on how to meet pyQT5 or libsecp256k1 installations.
 
-In fact, the actual python 3.7.7 version installed pyQT5 is on 5.13.1 version as workaround to fix Big Sur or Monterey crash
+Finally, this version we installed PyQt5 5.13.1 module on python 3.7.7 as workaround to fix Big Sur or Monterey GUI wallet crash
 ( https://github.com/spesmilo/electrum/issues/6461 )
 
 #### 2. Build Electrum
