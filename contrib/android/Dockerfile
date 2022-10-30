@@ -102,6 +102,7 @@ RUN add-apt-repository ppa:kivy-team/kivy \
     && apt -y install -qq --no-install-recommends python3-kivy \
     && apt -y autoremove \
     && apt -y clean
+RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install image
 
 # build dependencies
