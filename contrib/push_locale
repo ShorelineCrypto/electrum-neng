@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.7
 import os
 import subprocess
 import io
@@ -8,7 +8,7 @@ import sys
 try:
     import requests
 except ImportError as e:
-    sys.exit(f"Error: {str(e)}. Try 'sudo python3 -m pip install <module-name>'")
+    sys.exit(f"Error: {str(e)}. Try 'sudo python3.7 -m pip install <module-name>'")
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 os.chdir('..')
