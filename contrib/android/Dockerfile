@@ -92,7 +92,7 @@ ENV WORK_DIR="${HOME_DIR}/wspace" \
 # install system dependencies
 RUN apt -y update -qq \
     && apt -y install -qq --no-install-recommends \
-        python3 python3-pip python3-setuptools git wget lbzip2 patch sudo \
+        python3.7 python3-pip python3-setuptools git wget lbzip2 patch sudo \
         software-properties-common libssl-dev \
     && apt -y autoremove
 
@@ -102,15 +102,15 @@ RUN add-apt-repository ppa:kivy-team/kivy \
     && apt -y install -qq --no-install-recommends python3-kivy \
     && apt -y autoremove \
     && apt -y clean
-RUN python3 -m pip install --upgrade pip
-RUN python3 -m pip install image
+RUN python3.7 -m pip install --upgrade pip
+RUN python3.7 -m pip install image
 
 # build dependencies
 # https://buildozer.readthedocs.io/en/latest/installation.html#android-on-ubuntu-16-04-64bit
 RUN dpkg --add-architecture i386 \
     && apt -y update -qq \
     && apt -y install -qq --no-install-recommends \
-        build-essential ccache git python3 python3-dev \
+        build-essential ccache git python3.7 python3.7-dev \
         libncurses5:i386 libstdc++6:i386 libgtk2.0-0:i386 \
         libpangox-1.0-0:i386 libpangoxft-1.0-0:i386 libidn11:i386 \
         zip zlib1g-dev zlib1g:i386 \
@@ -141,9 +141,9 @@ RUN chown ${USER} /opt
 USER ${USER}
 
 
-RUN python3 -m pip install --upgrade cython==0.28.6
-RUN python3 -m pip install --upgrade pip
-RUN python3 -m pip install --user wheel
+RUN python3.7 -m pip install --upgrade pip
+RUN python3.7 -m pip install --upgrade cython==0.28.6
+RUN python3.7 -m pip install --user wheel
 
 # prepare git
 RUN git config --global user.name "John Doe" \
@@ -156,7 +156,7 @@ RUN cd /opt \
     && git remote add sombernight https://github.com/SomberNight/buildozer \
     && git fetch --all \
     && git checkout d0323c165dd5d9aa23d5eb01044474fe006c3420 \
-    && python3 -m pip install --user -e .
+    && python3.7 -m pip install --user -e .
 
 # install python-for-android
 RUN cd /opt \
@@ -165,7 +165,7 @@ RUN cd /opt \
     && git remote add sombernight https://github.com/SomberNight/python-for-android \
     && git fetch --all \
     && git checkout cef08b92268fe69ef331699c2205cbb091e730f0 \
-    && python3 -m pip install --user -e .
+    && python3.7 -m pip install --user -e .
 
 # build env vars
 ENV USE_SDK_WRAPPER=1
