@@ -110,8 +110,8 @@ info "generating locale"
 
 info "Installing libusb..."
 brew install libusb
-cp /usr/local/Cellar/libusb/1.0.26/lib/libusb-1.0.dylib contrib/osx
-echo "63203f39566ccaf2613852175cf329cf4ffb704361816da65bc25019c1634872  contrib/osx/libusb-1.0.dylib" | \
+cp /usr/local/Cellar/libusb/1.0.28/lib/libusb-1.0.dylib contrib/osx
+echo "74e51b08e75a4566b4bb413b4b8ecb74c5cf75bf3cb31f3e5b828eb1746bd4d2  contrib/osx/libusb-1.0.dylib" | \
     shasum -a 256 -c || fail "libusb checksum mismatched"
 
 info "Preparing for building libsecp256k1"
